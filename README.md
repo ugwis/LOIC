@@ -1,3 +1,16 @@
+## NOTE
+This repository is improved for running on characteristic interfaces, e.g. command arguments set target host and protocol.  
+But LOIC require .NET framework and output DISPLAY. You can use XForward or Xvfb(Virtual Display).  
+  
+  
+by ugwis.  
+  
+  
+  
+  
+  
+above articles origins NewEraCracker/LOIC  
+
 ## INFO
 
 Low Orbit Ion Cannon (**LOIC**) is an open source network stress tool, written in C#.
