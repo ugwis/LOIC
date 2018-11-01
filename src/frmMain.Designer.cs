@@ -153,6 +153,7 @@ namespace LOIC
             this.txtTargetIP.ForeColor = System.Drawing.Color.Azure;
             this.txtTargetIP.Location = new System.Drawing.Point(39, 48);
             this.txtTargetIP.Name = "txtTargetIP";
+            this.txtTargetIP.Text = "127.0.0.1";
             this.txtTargetIP.Size = new System.Drawing.Size(365, 20);
             this.txtTargetIP.TabIndex = 3;
             this.TTip.SetToolTip(this.txtTargetIP, "If you know your target\'s IP, enter the IP here and click \"Lock on\"");
@@ -292,7 +293,7 @@ namespace LOIC
             this.txtSLSpT.Name = "txtSLSpT";
             this.txtSLSpT.Size = new System.Drawing.Size(57, 20);
             this.txtSLSpT.TabIndex = 30;
-            this.txtSLSpT.Text = "25";
+            this.txtSLSpT.Text = "1";
             this.txtSLSpT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TTip.SetToolTip(this.txtSLSpT, "Amount of sockets per thread");
             //
@@ -300,6 +301,7 @@ namespace LOIC
             //
             this.chkMsgRandom.Location = new System.Drawing.Point(437, 21);
             this.chkMsgRandom.Name = "chkMsgRandom";
+            this.chkMsgRandom.Checked = true;
             this.chkMsgRandom.Size = new System.Drawing.Size(212, 18);
             this.chkMsgRandom.TabIndex = 29;
             this.chkMsgRandom.Text = "Append random chars to the message";
@@ -394,6 +396,7 @@ namespace LOIC
             this.chkWaitReply.AutoSize = true;
             this.chkWaitReply.Location = new System.Drawing.Point(231, 79);
             this.chkWaitReply.Name = "chkWaitReply";
+            this.chkWaitReply.Checked = true;
             this.chkWaitReply.Size = new System.Drawing.Size(91, 18);
             this.chkWaitReply.TabIndex = 7;
             this.chkWaitReply.Text = "Wait for reply";
@@ -410,7 +413,7 @@ namespace LOIC
             this.txtData.Name = "txtData";
             this.txtData.Size = new System.Drawing.Size(312, 20);
             this.txtData.TabIndex = 3;
-            this.txtData.Text = "U dun goofed";
+            this.txtData.Text = "loic";
             this.txtData.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TTip.SetToolTip(this.txtData, "The data to send in TCP/UDP mode");
             //
@@ -502,6 +505,7 @@ namespace LOIC
             this.tbSpeed.TabIndex = 8;
             this.TTip.SetToolTip(this.tbSpeed, "Use this to increase or reduce attack speed");
             this.tbSpeed.ValueChanged += new System.EventHandler(this.tbSpeed_ValueChanged);
+            this.tbSpeed.Value = 50;
             //
             // groupBox4
             //

