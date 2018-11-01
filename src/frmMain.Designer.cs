@@ -153,7 +153,7 @@ namespace LOIC
             this.txtTargetIP.ForeColor = System.Drawing.Color.Azure;
             this.txtTargetIP.Location = new System.Drawing.Point(39, 48);
             this.txtTargetIP.Name = "txtTargetIP";
-            this.txtTargetIP.Text = "127.0.0.1";
+            this.txtTargetIP.Text = "";
             this.txtTargetIP.Size = new System.Drawing.Size(365, 20);
             this.txtTargetIP.TabIndex = 3;
             this.TTip.SetToolTip(this.txtTargetIP, "If you know your target\'s IP, enter the IP here and click \"Lock on\"");
@@ -455,7 +455,7 @@ namespace LOIC
             this.txtThreads.Name = "txtThreads";
             this.txtThreads.Size = new System.Drawing.Size(57, 20);
             this.txtThreads.TabIndex = 6;
-            this.txtThreads.Text = "10";
+            this.txtThreads.Text = "1";
             this.txtThreads.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TTip.SetToolTip(this.txtThreads, "How many users LOIC should emulate");
             this.txtThreads.Leave += new System.EventHandler(this.txtThreads_Leave);

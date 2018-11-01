@@ -43,7 +43,7 @@ namespace LOIC
 		/// <param name="ircserver">The irc server.</param>
 		/// <param name="ircport">The irc port.</param>
 		/// <param name="ircchannel">The irc channel.</param>
-		public frmMain(bool hive, bool hide, string ircserver, string ircport, string ircchannel)
+		public frmMain(bool hive, bool hide, string ircserver, string ircport, string ircchannel, string targetIP, string targetPort, string protocol)
 		{
 			InitializeComponent();
 
@@ -80,6 +80,9 @@ namespace LOIC
 
 			enableHive.Checked |= hive;
 			disableHive.Checked |= !hive;
+			txtTargetIP.Text = targetIP;
+			txtPort.Text = targetPort;
+			cbMethod.SelectedIndex = Int32.Parse(protocol);
 			LockOnIP(true);
 			Attack(false, true, true);
 		}
