@@ -293,7 +293,7 @@ namespace LOIC
             this.txtSLSpT.Name = "txtSLSpT";
             this.txtSLSpT.Size = new System.Drawing.Size(57, 20);
             this.txtSLSpT.TabIndex = 30;
-            this.txtSLSpT.Text = "1";
+            this.txtSLSpT.Text = "25";
             this.txtSLSpT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TTip.SetToolTip(this.txtSLSpT, "Amount of sockets per thread");
             //
@@ -455,7 +455,7 @@ namespace LOIC
             this.txtThreads.Name = "txtThreads";
             this.txtThreads.Size = new System.Drawing.Size(57, 20);
             this.txtThreads.TabIndex = 6;
-            this.txtThreads.Text = "1";
+            this.txtThreads.Text = "10";
             this.txtThreads.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TTip.SetToolTip(this.txtThreads, "How many users LOIC should emulate");
             this.txtThreads.Leave += new System.EventHandler(this.txtThreads_Leave);
@@ -505,7 +505,7 @@ namespace LOIC
             this.tbSpeed.TabIndex = 8;
             this.TTip.SetToolTip(this.tbSpeed, "Use this to increase or reduce attack speed");
             this.tbSpeed.ValueChanged += new System.EventHandler(this.tbSpeed_ValueChanged);
-            this.tbSpeed.Value = 50;
+            this.tbSpeed.Value = 0;
             //
             // groupBox4
             //
