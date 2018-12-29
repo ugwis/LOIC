@@ -90,7 +90,7 @@ run_loic() {
         fi
     fi
     cp -n ./src/app.config ./src/bin/Debug/LOIC.exe.config
-    mono --runtime=v4.0.30319 src/bin/Debug/LOIC.exe /target ${DOS_TARGET} ${DOS_PORT} ${LOIC_PROC}
+    mono --runtime=v4.0.30319 src/bin/Debug/LOIC.exe /target ${DOS_TARGET} ${DOS_PORT} ${LOIC_PROC} /limit ${THRESHOLD}
 }
 
 update_loic() {

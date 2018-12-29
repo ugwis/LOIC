@@ -16,6 +16,7 @@ namespace LOIC
 			bool hive = false, hide = false;
 			string ircserver = "", ircport = "", ircchannel = "";
 			string targetIP = "127.0.0.1", targetPort = "80", protocol = "0";
+			string limits = "0";
 
 			int count = 0;
 			foreach(string s in cmdLine)
@@ -41,12 +42,15 @@ namespace LOIC
 					try {protocol = cmdLine[count + 3];}
 					catch(Exception) {protocol = "0";}
 				}
+				if(s.ToLowerInvariant() == "/limit") {
+					limits = cmdLine[count + 1];
+				}
 
 				count++;
 			}
 
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new frmMain(hive, hide, ircserver, ircport, ircchannel, targetIP, targetPort, protocol));
+			Application.Run(new frmMain(hive, hide, ircserver, ircport, ircchannel, targetIP, targetPort, protocol,limits));
 		}
 	}
 }
