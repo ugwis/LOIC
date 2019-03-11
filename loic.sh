@@ -12,6 +12,8 @@
 # Usage: bash ubuntu_loic.bash <install|update|run>
 #
 
+echo $DISPLAY
+
 GIT_REPO=https://github.com/NewEraCracker/LOIC.git
 GIT_BRANCH=master
 
@@ -41,7 +43,7 @@ DISTRO=$(what_distro)
 ensure_git() {
     if ! which git ; then
         if [[ $DISTRO = 'ubuntu' || $DISTRO = 'debian' ]] ; then
-            sudo apt-get install git
+            sudo apt-get install -y git
         elif [[ $DISTRO = 'fedora' ]] ; then
             sudo yum install git
         fi
@@ -70,7 +72,7 @@ compile_loic() {
         exit 1
     fi
     if [[ $DISTRO = 'ubuntu' || $DISTRO = 'debian' ]] ; then
-        sudo apt-get install $DEB_MONO_PKG
+        sudo apt-get install -y $DEB_MONO_PKG
     elif [[ $DISTRO = 'fedora' ]] ; then
         sudo yum install $FED_MONO_PKG
     fi
@@ -84,13 +86,21 @@ run_loic() {
     fi
     if ! which mono ; then
         if [[ $DISTRO = 'ubuntu' || $DISTRO = 'debian' ]] ; then
-            sudo apt-get install mono-runtime
+            sudo apt-get install -y mono-runtime
         elif [[ $DISTRO = 'fedora' ]] ; then
             sudo yum install mono-runtime
         fi
     fi
     cp -n ./src/app.config ./src/bin/Debug/LOIC.exe.config
-    mono --runtime=v4.0.30319 src/bin/Debug/LOIC.exe /target ${DOS_TARGET} ${DOS_PORT} ${LOIC_PROC} /limit ${THRESHOLD}
+    stats=1
+    while [ $stats -ne 0 ] 
+    do
+        mono --debug --runtime=v4.0.30319 src/bin/Debug/LOIC.exe /target ${DOS_TARGET} ${DOS_PORT} ${LOIC_PROC} /limit ${THRESHOLD}
+	stats=$?
+	echo "LOIC Exit Status: $stats" | slack-text
+	echo "LOIC Exit Status: $stats"
+	echo "Restarting..."
+    done
 }
 
 update_loic() {

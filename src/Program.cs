@@ -49,6 +49,10 @@ namespace LOIC
 				count++;
 			}
 
+			System.Console.WriteLine("Target IP Address: {0} \n",targetIP);
+			System.Console.WriteLine("Target Port: {0} \n",targetPort);
+			System.Console.WriteLine("Protocol: {0} \n",protocol);
+			System.Console.WriteLine("Limits: {0} \n",limits);
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new frmMain(hive, hide, ircserver, ircport, ircchannel, targetIP, targetPort, protocol,limits));
 		}
