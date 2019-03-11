@@ -893,10 +893,6 @@ namespace LOIC
 						iDownloaded += c.Downloaded;
 						iRequested += c.Requested;
 						iFailed += c.Failed;
-						if(iRequested >= this.iLimits){
-							Attack(false, false, true);
-							Application.Exit();
-						}
 						if(c.State == ReqState.Ready ||
 							c.State == ReqState.Completed)
 							iIdle++;
@@ -998,6 +994,10 @@ namespace LOIC
 						}
 					}
 				}
+			}
+			if(iRequested >= this.iLimits){
+				Attack(false, false, true);
+				Application.Exit();
 			}
 
 			lbFailed.Text = iFailed.ToString();
