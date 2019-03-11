@@ -55,21 +55,7 @@ namespace LOIC
 				this.WindowState = FormWindowState.Minimized;
 				this.ShowInTaskbar = false;
 			}
-			else if(!Settings.HasAcceptedEula())
-			{
-				// Display EULA
-				using(Form f = new frmEULA())
-				{
-					if(f.ShowDialog(this) != DialogResult.OK) {
-						// Bail out if declined
-						Environment.Exit(0);
-						return;
-					} else {
-						// Save EULA acceptance
-						Settings.SaveAcceptedEula();
-					}
-				}
-			}
+			Settings.SaveAcceptedEula();
 
 			// IRC
 			if(ircserver.Length > 0)
