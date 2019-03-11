@@ -47,6 +47,7 @@ namespace LOIC
 		public frmMain(bool hive, bool hide, string ircserver, string ircport, string ircchannel, string targetIP, string targetPort, string protocol, string limits)
 		{
 			InitializeComponent();
+			Debug.Listeners.Add(new TextWriterTraceListener(Console.Out));
 
 			/* Lets try this! */
 			bIsHidden = hide;
