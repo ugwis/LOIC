@@ -21,6 +21,7 @@ namespace LOIC
 			int count = 0;
 			foreach(string s in cmdLine)
 			{
+				System.Console.WriteLine("{0}",s);
 				if(s.ToLowerInvariant() == "/hidden") {
 					hide = true;
 				}
