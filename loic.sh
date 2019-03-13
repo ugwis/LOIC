@@ -100,6 +100,7 @@ run_loic() {
 	echo "LOIC Exit Status: $stats" | slack-text
 	echo "LOIC Exit Status: $stats"
 	echo "Restarting..."
+	sleep 1
     done
 }
 
